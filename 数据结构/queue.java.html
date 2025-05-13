@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>queue.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #808080;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+queue.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span><span class="s1">queue {</span>
+    <span class="s0">int </span><span class="s1">max=</span><span class="s2">8</span><span class="s0">;</span>
+    <span class="s0">int</span><span class="s1">[] arr=</span><span class="s0">new int</span><span class="s1">[max]</span><span class="s0">;</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">queue q=</span><span class="s0">new </span><span class="s1">queue()</span><span class="s0">;</span>
+        <span class="s1">q.check(</span><span class="s2">0</span><span class="s1">)</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+    <span class="s3">//放置皇后</span>
+    <span class="s0">private void </span><span class="s1">check(</span><span class="s0">int </span><span class="s1">n)</span>
+    <span class="s1">{</span>
+        <span class="s0">if</span><span class="s1">(n==max)</span>
+        <span class="s1">{</span>
+            <span class="s1">print()</span><span class="s0">;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s3">//依次放入并判断是否冲突</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; max</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">arr[n]=i</span><span class="s0">;</span>
+            <span class="s0">if</span><span class="s1">(judge(n))</span>
+            <span class="s1">{</span>
+               <span class="s1">check(n+</span><span class="s2">1</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s3">//查看是否冲突</span>
+    <span class="s0">private boolean </span><span class="s1">judge(</span><span class="s0">int </span><span class="s1">n)</span>
+    <span class="s1">{</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i=</span><span class="s2">0</span><span class="s0">;</span><span class="s1">i&lt;n</span><span class="s0">;</span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(arr[i]==arr[n]||Math.abs(n-i)==Math.abs(arr[n]-arr[i]))</span>
+            <span class="s1">{</span>
+                <span class="s0">return false;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return true;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">print()</span>
+    <span class="s1">{</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; arr.length</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">System.out.print(arr[i]+</span><span class="s4">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

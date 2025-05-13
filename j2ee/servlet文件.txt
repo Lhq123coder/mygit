@@ -1,0 +1,142 @@
+什么是servlet
+是javaee的规范之一，规范就是接口
+servlet是javaweb三大组件之一，servlet程序，filter过滤器，listener监听器
+是运行在服务器的Java小程序
+
+
+
+手动实现servlet程序
+1.编写一个类实现servlet接口
+2.实现service方法，处理请求和访问
+3.
+<!--    servlet标签给tomcat配置servlet程序-->
+    <servlet>
+<!--        name 给程序起别名 class 全类名-->
+        <servlet-name>hello</servlet-name>
+        <servlet-class>mypac.helloservlet</servlet-class>
+<!--        初始化参数-->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>123</param-value>
+        </init-param>
+    </servlet>
+<!--    给servlet程序配置访问地址-->
+    <servlet-mapping>
+<!--        name 告诉服务器给谁用-->
+        <servlet-name>hello</servlet-name>
+<!--        配置访问地址
+            /斜杠在服务器解析式，表示地址为http://ip:port/工程路径
+            /hello  表示地址为http://ip:port/工程路径/hello
+            常见错误：url-pattern中路径，没有以斜杠开头
+            servlet-name配置的值不存在
+-->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+
+servlet生命周期
+1.执行servlet构造器方法
+2.执行init初始化方法
+只在第一次启动时候访问
+3.执行service方法
+4.distroy
+
+
+
+通过HttpServlet实现servlet
+一般在实际开发项目中，继承HttpServlet类
+1.编写一个类继承HttpServlet
+2.更具业务重写doGet或doPost
+3.到web.xml中配置servlet访问地址
+
+
+servlet继承关系：
+自定义Servlet程序  继承  HttpServlet  继承  GenericServlet  实现接口  Servlet
+                      实现了service方      实现了servlet      负责servlet 
+                                         接口，持有servletconfig     程序的规范      
+                                          类的引用 
+
+
+servletconfig类封装初始化配置
+作用：1.或i去servlet程序别名
+2.获取初始化参数init-param
+3.获取servletContext对象
+servletConfig.getInitParameter("username")("url")
+
+
+servletContext类
+一个接口，上下文对象
+一个web工程只有一个servletContext对象
+是一个域对象，可以像map一样存储数据
+作用：
+1.获取web.xml中配置的上下文参数context-param
+2.获取当前工程路径，格式：/工程路径
+3.获取工程部署后在服务器硬盘的绝对路径
+4.像map一样存储数据
+
+
+请求的http格式
+客户端给服务器发数据叫请求
+服务器给客户端叫响应
+请求分get post
+GET:
+1.请求行
+（1）请求方式  GET
+（2）请求资源路径  
+（3）请求协议版本号 HTTP/1.1
+2.请求头
+key：value 组成 不同键值对表示不同含义
+Accept：表示客户端可以接受的数据类型
+Accept-Language：表示客户端可以接受的语言
+User-Agent：表示客户的浏览器信息
+Host：表示请求时服务器ip和端口号
+
+
+
+GET请求：
+1.form标签method=get
+2.a标签
+3.link标签引入css
+4.Script标签引入js文件
+5.img标签引入图片
+6.iframe引入html页面
+7.在浏览器地址栏输入地址后敲回车
+ 
+POST请求：
+method=post
+
+
+
+响应的HTTP协议实例：
+1.相应行：1.相应协议     2.响应状态码     3.响应状态描述符
+2.响应头：Server：表示服务器信息
+Content-Type：表示相应体的数据类型
+Content-Length：响应体长度
+Date：请求响应的时间
+3.响应体
+
+
+常见的响应码   
+200  请求成功     302  请求重新定向    404    请求服务器已经收到，但是数据不存在（请求地址错误）
+500  表示服务器收到请求，但是服务器内部错误（代码错误）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

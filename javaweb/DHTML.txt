@@ -1,0 +1,99 @@
+时间取消： 在时间属性中，如果直接return false则会把当前时间取消掉
+DHTML：
+Dynamic HTML,是HTML+CSS+JS实现
+包括：DOM和BOM
+BOM：Browser浏览器 Object对象 Model模型，包含和浏览器相关的各种对象
+DOM：Document文档 Object对象 Model模型，包含和页面相关的各种对象
+
+  BOM 浏览器对象模型
+  window 窗口里面的属性和方法是全局的，调用时可以省略
+    window下常用的属性和函数
+parseInt()
+alert()弹出
+confirm()确认  
+<a href="http://www.tmooc.cn" onclick="return confirm('确认离开吗？')">TMOOC</a>
+prompt(“请输入”)  弹出文本框
+isNaN()
+    location:位置
+location.href=
+location.reload();刷新
+        history
+代表当前窗口的历史
+history.back();
+history.length;
+history.forward();
+go(num)
+    screen
+width,height,availWidth,availHeight
+    navigator
+userAgent得到浏览器版本信息
+ 
+    和window相关的事件
+onclick  onblur  onsubmit
+
+onclick:点击事件
+onload：加载完成的事件
+onfocus：获取焦点
+onblur：失去焦点
+
+     eval()方法    
+内部直接以代码方式运行
+
+    通过js给元素添加样式
+获取和设置的为内联样式，不能获取非内联样式
+   定时器
+setInterval(函数，时间间隔);
+var id=setInterval(函数，时间间隔)
+停止：clearInterval(id);
+setTimeout(函数，间隔);这种方式只会执行一次
+
+   DOM
+学习对页面的标签的增删改查
+      查找：
+ 1.通过id查找
+var input=document.getElementById("id");
+2.通过标签名查找
+var arr=document.getElementsByTagName("div");
+3.通过标签的name查找
+var arr=document.getElementsByName("name");
+4.通过class属性查找
+var arr=document.getElementsByClassName("class");
+5.获取body
+document.body
+innerText+=
+innerHTML+=
+li获取元素内容li[i].textContent
+   创建元素对象
+var h1=document.createElement("h1");
+h1.innerText="lalala";
+     添加元素到另一个元素里
+document.body.appendChild(h1);
+     插入元素到某个元素的上面
+var a1=document.getElementById("a1");
+document.body.insertBefore(h1,a1);
+    删除元素
+父元素.removeChild(id);    
+   事件：
+一些特定的时间点，windows相关的事件，鼠标相关，键盘相关
+     onclick点击事件，onload加成完成使事件，onfoucs获取焦点
+   onblur失去焦点，onchange值发生改变，onsubmit表单提交时间
+鼠标事件：
+      onmouseover鼠标移入事件，onmouseout鼠标移出事件 onmousedown鼠标按下
+      onmouseup鼠标松开
+键盘事件：
+     onkeydown(),获得键盘编码 event.keyCode
+   
+事件绑定：
+1.在事件属性内绑定
+2.动态绑定事件
+通过id id.onclick=function(){}
+
+
+
+
+
+
+
+
+
+

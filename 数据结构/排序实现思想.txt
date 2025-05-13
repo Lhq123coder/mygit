@@ -1,0 +1,47 @@
+冒泡排序：
+先从第一个值和这个值得下一个值进行比较，排序后，开始进入下一轮循环，
+将最大或最小值一直推到数组末尾
+
+代码实现：
+for(int i=0;i<n-1;i++)
+{for(int j=0;j<n-i-1;j++)
+{判断arr[j]和arr[j+1]大小，排序}
+
+时间复杂度较高
+
+选择排序：
+找出最小值，然后将最小值与数组第一层for循环所到达的数组位置交换
+for(int i=0;i<n-1;i++)
+{int min=arr[i];
+int mindex=i;
+for(j=i;j<n;j++)
+这层循环选出最小值
+if(min>arr[j])
+min=arr[j];
+mindex=j;
+}内层循环结束，将最小值与arr[i]交换。
+
+插入排序：
+将数组看成两个部分，第一个部分有序，第二个部分无序。从第二个部分获取数字，插入第一个
+部分
+如何插：1.设置insertval和insertdex为第一个for循环里的元素，*从1开始，while条件如果
+index>=0&&insertval<arr[index]
+让arr[index+1]=arr[index];
+index--；
+直到退出循环，找到该插入的地方，将该数字插入到index+1的位置。
+for(int i=1;i<n;i++)
+{
+int dex=i-1;
+int val=arr[i];
+while(index>=0&&arr[index]>val)
+{
+arr[index+1]=arr[index];
+index--；
+}
+x[insertdex + 1] = insertvalue;
+
+
+
+
+
+

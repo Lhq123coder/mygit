@@ -1,0 +1,44 @@
+static node getKEnd(node sta,int k)
+    {
+        while(--k!=0&&sta!=null)
+        {
+            sta=sta.next;
+        }
+        return sta;
+    }
+    static void reverse(node sta,node end)
+    {
+        end=end.next;
+        node pre=null;
+        node cur=sta;
+        node nex;
+        while(cur!=end)
+        {
+            nex=cur.next;
+            cur.next=pre;
+            pre=cur;
+            cur=nex;
+        }
+        sta.next=end;
+    }
+    static node revK(node n,int k)
+    {
+        node start=n;
+        node end=getKEnd(start,k);
+        if(end==null)
+            return n;
+        n=end;
+        reverse(start,end);
+        node lastEnd=start;
+        while(lastEnd.next!=null)
+        {
+            start=lastEnd.next;
+            end=getKEnd(start,k);
+            if(end==null)
+                return n;
+            reverse(start,end);
+            lastEnd.next=end;
+            lastEnd=start;
+        }
+        return n;
+    }

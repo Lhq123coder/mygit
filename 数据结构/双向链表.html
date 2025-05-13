@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>DAY1.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DAY1.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">mypac.study</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+<span class="s2">//双向链表</span>
+<span class="s2">//1.遍历可以双向</span>
+<span class="s2">//2.添加：默认在最后</span>
+<span class="s2">//先找到最后节点</span>
+<span class="s2">//temp.next=node</span>
+<span class="s2">//node.pre=temp</span>
+<span class="s2">//3.修改，和单链表相同</span>
+<span class="s2">//4.删除：找到待删除节点</span>
+<span class="s2">//node.pre.next=node.next</span>
+<span class="s2">//node.next.pre=node.pre</span>
+<span class="s0">public class </span><span class="s1">DAY1 {</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">doublelinkednode d=</span><span class="s0">new </span><span class="s1">doublelinkednode()</span><span class="s0">;</span>
+        <span class="s1">mynode n=</span><span class="s0">new </span><span class="s1">mynode(</span><span class="s3">1</span><span class="s0">,</span><span class="s4">&quot;jj&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">mynode n2=</span><span class="s0">new </span><span class="s1">mynode(</span><span class="s3">3</span><span class="s0">,</span><span class="s4">&quot;mm&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">mynode n4=</span><span class="s0">new </span><span class="s1">mynode(</span><span class="s3">2</span><span class="s0">,</span><span class="s4">&quot;哈哈&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">mynode n3=</span><span class="s0">new </span><span class="s1">mynode(</span><span class="s3">2</span><span class="s0">,</span><span class="s4">&quot;刚刚&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">d.add(n)</span><span class="s0">;</span>
+        <span class="s1">d.add(n2)</span><span class="s0">;</span>
+        <span class="s1">d.add(n3)</span><span class="s0">;</span>
+        <span class="s1">d.show()</span><span class="s0">;</span>
+        <span class="s1">d.change(n4)</span><span class="s0">;</span>
+        <span class="s1">d.show()</span><span class="s0">;</span>
+        <span class="s1">d.deletenode(n2)</span><span class="s0">;</span>
+        <span class="s1">d.show()</span><span class="s0">;</span>
+
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s0">class </span><span class="s1">doublelinkednode{</span>
+    <span class="s0">public int </span><span class="s1">size</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">mynode head=</span><span class="s0">new </span><span class="s1">mynode()</span><span class="s0">;</span>
+    <span class="s0">public void </span><span class="s1">show()</span><span class="s2">//显示</span>
+    <span class="s1">{</span>
+        <span class="s0">if</span><span class="s1">(head.next==</span><span class="s0">null</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;链表为空&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s1">mynode temp=head.next</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp==</span><span class="s0">null</span><span class="s1">)</span>
+            <span class="s1">{</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s1">System.out.print(temp.no+temp.name+</span><span class="s4">&quot;  &quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">add(mynode node)</span><span class="s2">//添加</span>
+    <span class="s1">{</span>
+        <span class="s1">mynode temp=head</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp.next==</span><span class="s0">null</span><span class="s1">)</span>
+            <span class="s1">{</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">temp.next=node</span><span class="s0">;</span>
+        <span class="s1">node.pre=temp</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">change(mynode node)</span><span class="s2">//修改</span>
+    <span class="s1">{</span>
+        <span class="s1">mynode temp=head.next</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp==</span><span class="s0">null</span><span class="s1">)</span>
+            <span class="s1">{</span>
+                <span class="s1">System.out.println(</span><span class="s4">&quot;未找到&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s0">if</span><span class="s1">(temp.no==node.no)</span>
+            <span class="s1">{</span>
+                <span class="s1">temp.name=node.name</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">change(mynode node</span><span class="s0">,int </span><span class="s1">dex)</span><span class="s2">//修改</span>
+    <span class="s1">{</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">deletenode(mynode node)</span><span class="s2">//删除</span>
+    <span class="s1">{</span>
+        <span class="s1">mynode temp=head.next</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(node==</span><span class="s0">null</span><span class="s1">)</span>
+            <span class="s1">{</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s0">if</span><span class="s1">(node.no==temp.no)</span>
+            <span class="s1">{</span>
+                <span class="s1">temp.pre.next=node.next</span><span class="s0">;</span>
+                <span class="s1">node.next.pre=node.pre</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s0">class </span><span class="s1">mynode{</span>
+    <span class="s0">public int </span><span class="s1">no</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">String name</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">mynode pre</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">mynode next</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">mynode(){</span>
+
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">mynode(</span><span class="s0">int </span><span class="s1">n</span><span class="s0">,</span><span class="s1">String name)</span>
+    <span class="s1">{</span>
+        <span class="s1">no=n</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.name=name</span><span class="s0">;</span>
+        <span class="s1">pre=</span><span class="s0">null;</span>
+        <span class="s1">next=</span><span class="s0">null;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

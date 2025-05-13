@@ -1,0 +1,51 @@
+xml是可扩展的标记性语言
+主要作用：
+1.用来保存数据，而且这些数据具有自我描述性
+2.可以作为项目或者模块的配置文件
+3.可以作为网络传输数据的格式
+
+要自己些xml的话，应该new一个files文件，文件名.xml
+命名规则：
+1.可以包含字符，数字，其他字符
+2.不能以标点数字开头
+3.不能以xml开始
+4.不能包含空格
+跟标签唯一
+&lt;小于号
+语法：
+1.文档声明
+CDATA区，文本区域，可以告诉xml解析器，CDATA文本只是纯文本
+不需要解析，<s><![CDATA[
+        ]]>
+        </s>
+
+解析：dom4j解析技术：
+@Test
+    public void test() throws DocumentException {
+        //创建一个saxReader输入流，读取xml配置文件，生成document对象
+        SAXReader saxReader=new SAXReader();
+        Document doc=saxReader.read("src/books.xml");
+        System.out.println(doc);
+    }
+    //读取books.xml文件生成book类
+    @Test
+    public void test2() throws DocumentException {
+        //1.读取book.xml文件
+        SAXReader saxReader=new SAXReader();
+        Document doc=saxReader.read("src/books.xml");
+        //2.通过document对象获取根元素
+         Element rootElement =doc.getRootElement();
+        //System.out.println(rootElement);
+        //3.通过根元素获取book标签对象
+        //element方法都是通过标签名查找子元素
+        List<Element> books= rootElement.elements("book");
+        //4.遍历，处理每个book标签转换成book类
+        for (Element book:books
+             ) {
+            String name=book.elementText("name");
+            String author=book.elementText("author");
+            String price=book.elementText("price");
+            book b=new book(name,price,author);
+            System.out.println(b);
+        }
+    }

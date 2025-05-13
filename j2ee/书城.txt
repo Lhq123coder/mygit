@@ -1,0 +1,8 @@
+1.创建书城需要得数据库和表
+id/用户名/密码/邮箱
+2.编写数据库表对应的javabean对象
+    private Integer id;
+    private String username;
+    private String password;
+    private String e;
+3.编写 工具类 jdbcUtils

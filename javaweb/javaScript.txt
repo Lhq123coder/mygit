@@ -1,0 +1,187 @@
+JavaScript   简称JS
+用于给页面添加动态效果或动态内容的
+JS开始叫LiveScript，和java没有关系，可以嵌套在html中，基于面向对象，
+弱类型的语言，交互性：可以和用户直接交换
+如何在html引用js
+1.在元素的事件属性中，如按钮的点击事件
+<input type="button" value="hh" onclick="alert('试试')">
+2.在script标签中，写js代码 推荐写在head里
+<script type="text/javascript">
+        alert("第二种方式")
+    </script>
+3.在单独的js文件中写，通过script标签的src属性引入,引入的标签不能再写js代码
+<script type="text/javascript" src="demo.js">
+</script>
+
+
+       JavaScript语法
+数据类型，变量，运算符，语句，方法
+
+                 数据类型
+1.数值类型（number）
+NaN（not a number）isNaN（）；
+2.字符串（string）
+3.布尔值（boolean）
+4.未定义类型（undefined）
+5.对象类型（object）
+                 变量的声明和赋值
+var x=18;
+var name="zhan";
+var b=true;
+var y;
+                  数据类型的隐式类型转换
+1.数值类型
+转字符串：name+age  直接转  18-》“18”  （只有加法把数值转为字符串）
+转布尔值： 0转false，非零为true
+2.字符串类型
+转数值：“30”-20  能转直接转，不能转为NaN  NaN和任何数值进行运算都是NaN
+转boolean：只有空字符串为false
+3.布尔值
+转数值：true为1，false为0
+转字符串：直接转
+4.undefined
+转数值：NaN
+转字符串：“undefined”
+转布尔值：false
+5.null
+转为0
+转字符串直接转
+转false
+
+     运算符
+1.==和===  ，==会先将等号两端类型统一，===先判断类型是否相等，不等直接返回false
+2.语句写条件的括号中如果不是布尔值类型会自动转换成布尔值
+3.for循环里的int i改成var i
+  
+     函数声明
+public String run(int age)
+{}
+JS:
+function run(age,name){
+    return "abc";
+}
+for(var i=0;i<10;i++)
+        {
+            console.log(i);
+        }
+    //    无参无返回值
+        function fn1() {
+            alert("无参无返回值");
+        }
+    //    调用方法
+    //     fn1();
+    //    无参有返回值
+        function fn2() {
+            return "啦啦啦";
+        }
+        //var x=fn2();
+        //alert(x);
+    //    有参无返回值
+        function fn3(name,age) {
+            alert(name+age);
+        }
+        fn3("小明",15);
+    //    有参有返回值
+        function fn4(x,y) {
+            return x+y;
+        }
+        var result=fn4(2,3);
+        alert(result);
+
+     和页面相关的函数
+1.通过id得到页面中元素的函数
+   var input=document.getElementById("myinput");
+2.从文本框中获取内容和设置内容
+   var x=document.getElementById("myinput");
+            alert(x.value);
+            x.value="修改";
+3.给div设置文本内容
+ d.innerText="ab";
+4.给div设置html内容
+  d.innerHTML="<h1>abc</h1>"
+parseInt(x)是把字符串转为int
+     
+    字符串
+1.创建字符串两种方式
+ var s1="abc";//单引号和双引号都可以
+ var s2=new String("abc");
+2.把字符串转成数值
+ parseInt(str)  把字符串转整数，还可以把小数转成整数
+parseFloat(str) 把字符串转成小数
+Number（）等效于parseFloat
+3.字符串转大小写
+str.toUpperCase();
+str.toLowerCase();
+4.获取字符串出现的位置
+ var str="abcdefg";
+ 从前面找  str.indexOf("e");
+ 从后面找  str.lastIndexOf("e")
+5.截取字符串
+  str.substring(start,[end]);
+6.替换字符串
+str.replace("c"old,"m"new);
+7.拆分字符串
+ str.split(",");返回值是数组
+     数值相关
+四舍五入：x.toFixed(2);
+   数组相关
+ 1.创建 var arr1=["小米"，10，true];
+var arr2=new Array();
+2.添加内容
+arr2.push(287);
+3.修改长度
+arr2.length=2;
+
+  日期相关函数
+服务器时间和客户端时间
+1.获取客户端时间
+     var d1=new Date();
+2.把字符串时间转成时间对象
+var d2=new Date("");
+3.从时间对象中获取和设置时间戳（距离1970年1月1日08：00：00）
+d2.getTime();
+d2.setTime(100);
+
+
+ 正则表达式
+.：匹配任意字符，除了换行
+\w：匹配任意数字，字母和下划线
+\d: 匹配任意数字
+\s:  匹配空白
+^:  开头
+$: 结尾
+应用场景：1.查找内容 2.校验文本 
+创建正则：
+第一个/代表规则，第二个参数表示模式（i，g）
+1.var reg1=/^a/i;  以a开头忽略大小写
+2.var reg2=/m$/;   以m结尾
+reg1=/\d{2}/;      包含两个数字
+reg1=/^\d{3}/;     以三个数字开头
+reg1=/^y\d{5}m$/   以y开头，m结尾，中间五个数字
+第二种
+var reg2=new RegExp("","");  
+和正则相关的方法：
+var str="you can you up no can no bb";
+        var reg=/no/g;
+        //查找内容,全局查找，每执行一次查找一个，执行第二次查找下一个，
+               找不到返回null
+        //alert(reg.exec(str));
+        //校验方法
+        // reg=/^You/i;
+        // alert(reg.test(str));
+        //字符串和正则相关的方法
+        //3.查找内容,一次性得到所有查找内容
+        // var arr=str.match(reg);
+        // alert(arr);
+        //查找替换
+        alert(str.replace(reg,"bu"));
+
+
+
+
+
+
+
+
+
+

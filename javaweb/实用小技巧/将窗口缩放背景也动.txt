@@ -1,0 +1,11 @@
+onload=function(){
+            changeSize();
+        }
+        onresize=function (){changeSize();}
+        function changeSize() {
+            //保持窗口大小就是背景图片大小
+            //得到html的宽高
+            var w=document.body.parentElement.clientWidth;
+            var h=document.body.parentElement.clientHeight;
+            document.body.style.backgroundSize=w+"px "+h+"px";
+        }

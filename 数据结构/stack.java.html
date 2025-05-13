@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>stack.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #808080;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+stack.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">mypac</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+<span class="s0">public class </span><span class="s1">stack {</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">mystack s=</span><span class="s0">new </span><span class="s1">mystack(</span><span class="s2">4</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">s.push(</span><span class="s2">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">s.push(</span><span class="s2">3</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">s.push(</span><span class="s2">4</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">s.show()</span><span class="s0">;</span>
+        <span class="s1">s.pop()</span><span class="s0">;</span>
+        <span class="s1">s.show()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s3">//使用数组来模拟栈</span>
+<span class="s3">//定义一个top为栈顶，初始化为-1</span>
+<span class="s3">//入栈：当有数据加入到栈，top++,stack[top]=data</span>
+<span class="s3">//出栈：int value=stack[top],top--,return value</span>
+<span class="s0">class </span><span class="s1">mystack</span>
+<span class="s1">{</span>
+    <span class="s0">public int </span><span class="s1">maxsize</span><span class="s0">;</span>
+    <span class="s0">public int</span><span class="s1">[] arr</span><span class="s0">;</span>
+    <span class="s0">public int </span><span class="s1">top=-</span><span class="s2">1</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">mystack(</span><span class="s0">int </span><span class="s1">maxsize)</span>
+    <span class="s1">{</span>
+        <span class="s0">this</span><span class="s1">.maxsize=maxsize</span><span class="s0">;</span>
+        <span class="s1">arr=</span><span class="s0">new int</span><span class="s1">[maxsize]</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public boolean </span><span class="s1">isfull()</span>
+    <span class="s1">{</span>
+        <span class="s0">return </span><span class="s1">top==maxsize-</span><span class="s2">1</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public boolean </span><span class="s1">isempty()</span>
+    <span class="s1">{</span>
+        <span class="s0">return </span><span class="s1">top==-</span><span class="s2">1</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">push(</span><span class="s0">int </span><span class="s1">n)</span>
+    <span class="s1">{</span>
+        <span class="s0">if</span><span class="s1">(isfull())</span>
+        <span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;栈已满&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s1">top++</span><span class="s0">;</span>
+        <span class="s1">arr[top]=n</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public int </span><span class="s1">pop()</span>
+    <span class="s1">{</span>
+        <span class="s0">if</span><span class="s1">(isempty())</span>
+        <span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">RuntimeException(</span><span class="s4">&quot;栈为空，无数据&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">int </span><span class="s1">value=arr[top]</span><span class="s0">;</span>
+        <span class="s1">top--</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">value</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">show()</span>
+    <span class="s1">{</span>
+        <span class="s0">int </span><span class="s1">i=top</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(i&gt;=</span><span class="s2">0</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s1">System.out.println(arr[i]+</span><span class="s4">&quot;   &quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">i--</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

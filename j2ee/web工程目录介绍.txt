@@ -1,0 +1,20 @@
+src:存自己编写的源代码
+web：存放web工程
+WEB-INF：受服务器保护的目录，浏览器无法直接访问此目录的内容
+web.xml整个动态web工程的配置描述文件，可以在此配置很多web工程组件
+比如：servlet程序，filter过滤器，listener监听器，session超时
+
+
+lib存放第三方的架构
+在web工程添加jar包
+1.打开项目结构菜单操作界面，添加一个类库
+2.添加类库需要的jar包文件
+3.选择添加的类库，给哪个模块用
+
+
+在idea中部署工程到tomcat运行
+1.建议修改web工程对应的tomcat运行实例名字
+URL：启动tomcat运行实例的默认打开地址
+Application Context是工程路径
+
+

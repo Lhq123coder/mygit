@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>hello.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+hello.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">mypac</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.List</span><span class="s0">;</span>
+
+<span class="s2">//1.初始化两个栈，一个是运算符栈，一个是中间结果栈</span>
+<span class="s2">//        2.从左至右遍历中缀表达式</span>
+<span class="s2">//        3.遇到数字，压入栈二</span>
+<span class="s2">//        4.遇到运算符：比较与s1栈顶运算符优先级</span>
+<span class="s2">//        如果s1为空，货站定的元素为“（”，将该符号入栈</span>
+<span class="s2">//        如果优先级比栈顶元素高，入栈</span>
+<span class="s2">//        否则将s1栈顶运算符弹出到s2，再进行4.1进行比较</span>
+<span class="s2">//        5.遇到括号</span>
+<span class="s2">//        1》.若是左括号，直接压入栈</span>
+<span class="s2">//        2》.若是右括号，将s1的栈顶弹到s2，直到有左括号，终止</span>
+<span class="s2">//        6.重复进行2-5</span>
+<span class="s2">//        7.将s1中的元素压入s2</span>
+<span class="s2">//        8.将s2的元素返回</span>
+<span class="s0">class </span><span class="s1">hello{</span>
+    <span class="s2">//将中缀表达式转为list</span>
+    <span class="s0">public static </span><span class="s1">List&lt;String&gt; toinfixexp(String s)</span>
+    <span class="s1">{</span>
+        <span class="s1">List&lt;String&gt; ls=</span><span class="s0">new </span><span class="s1">ArrayList&lt;String&gt;()</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">i=</span><span class="s3">0</span><span class="s0">;</span>
+        <span class="s1">String str</span><span class="s0">;</span><span class="s2">//对多位数拼接</span>
+        <span class="s0">char </span><span class="s1">c</span><span class="s0">;</span>
+        <span class="s0">do</span><span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">((c=s.charAt(i))&lt;</span><span class="s3">48</span><span class="s1">||(c=s.charAt(i))&gt;</span><span class="s3">57</span><span class="s1">)</span>
+            <span class="s1">{</span>
+                <span class="s1">ls.add(</span><span class="s4">&quot;&quot;</span><span class="s1">+c)</span><span class="s0">;</span>
+                <span class="s1">i++</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s0">else</span><span class="s1">{</span>
+                <span class="s1">str=</span><span class="s4">&quot;&quot;</span><span class="s0">;</span>
+                <span class="s0">while</span><span class="s1">(i&lt;s.length()&amp;&amp;(c=s.charAt(i))&gt;=</span><span class="s3">48</span><span class="s1">&amp;&amp;(c=s.charAt(i))&lt;=</span><span class="s3">57</span><span class="s1">)</span>
+                <span class="s1">{</span>
+                    <span class="s1">str+=c</span><span class="s0">;</span>
+                    <span class="s1">i++</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                <span class="s1">ls.add(str)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span><span class="s0">while</span><span class="s1">(i&lt;s.length())</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">ls</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args){</span>
+        <span class="s1">String exp=</span><span class="s4">&quot;1+2-4*(3+1)&quot;</span><span class="s0">;</span>
+        <span class="s1">List&lt;String&gt; in=toinfixexp(exp)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(in)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+</pre>
+</body>
+</html>

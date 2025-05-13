@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>DAY1.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DAY1.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">mypac.study</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">DAY1 {</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">singlelinknode s=</span><span class="s0">new </span><span class="s1">singlelinknode()</span><span class="s0">;</span>
+        <span class="s1">heronode h=</span><span class="s0">new </span><span class="s1">heronode(</span><span class="s2">5</span><span class="s0">,</span><span class="s3">&quot;hh&quot;</span><span class="s0">,</span><span class="s3">&quot;你猜&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">heronode h2=</span><span class="s0">new </span><span class="s1">heronode(</span><span class="s2">2</span><span class="s0">,</span><span class="s3">&quot;hh&quot;</span><span class="s0">,</span><span class="s3">&quot;你猜&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">heronode h3=</span><span class="s0">new </span><span class="s1">heronode(</span><span class="s2">3</span><span class="s0">,</span><span class="s3">&quot;hh&quot;</span><span class="s0">,</span><span class="s3">&quot;你猜&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">s.add(h2)</span><span class="s0">;</span>
+        <span class="s1">s.add(h)</span><span class="s0">;</span>
+        <span class="s1">s.insertnode(h3)</span><span class="s0">;</span>
+        <span class="s1">s.show()</span><span class="s0">;</span>
+        <span class="s1">s.delenode(h)</span><span class="s0">;</span>
+        <span class="s1">s.show()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s0">class </span><span class="s1">singlelinknode{</span>
+
+    <span class="s0">private </span><span class="s1">heronode head =</span><span class="s0">new </span><span class="s1">heronode()</span><span class="s0">;</span>
+    <span class="s0">public void </span><span class="s1">add(heronode node)</span>
+    <span class="s1">{</span>
+        <span class="s1">heronode temp=head</span><span class="s0">;</span>
+        <span class="s0">while </span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp.next==</span><span class="s0">null</span><span class="s1">)</span>
+            <span class="s1">{</span>
+             <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">temp.next=node</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">insertnode(heronode node)</span>
+    <span class="s1">{</span>
+        <span class="s1">heronode temp=head</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp.next==</span><span class="s0">null</span><span class="s1">)</span>
+                <span class="s0">break;</span>
+            <span class="s0">if</span><span class="s1">(temp.next.no&gt;node.no)</span>
+            <span class="s1">{</span>
+                <span class="s1">node.next=temp.next</span><span class="s0">;</span>
+                <span class="s1">temp.next=node</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">change(heronode node)</span>
+    <span class="s1">{</span>
+        <span class="s0">if</span><span class="s1">(head.next==</span><span class="s0">null</span><span class="s1">)</span>
+            <span class="s0">return;</span>
+        <span class="s1">heronode temp=head</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp==</span><span class="s0">null</span><span class="s1">)</span>
+                <span class="s0">break;</span>
+            <span class="s0">if</span><span class="s1">(node.no==temp.no)</span>
+            <span class="s1">{</span>
+                <span class="s1">temp.name=node.name</span><span class="s0">;</span>
+                <span class="s1">temp.nickname=node.nickname</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">delenode(heronode node)</span>
+    <span class="s1">{</span>
+        <span class="s1">heronode temp=head</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp==</span><span class="s0">null</span><span class="s1">)</span>
+                <span class="s0">break;</span>
+            <span class="s0">if</span><span class="s1">(node==temp.next)</span>
+            <span class="s1">{</span>
+                <span class="s1">temp.next=temp.next.next</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">show()</span>
+    <span class="s1">{</span>
+        <span class="s0">if</span><span class="s1">(head.next==</span><span class="s0">null</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;链表为空&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s1">heronode temp=head.next</span><span class="s0">;</span>
+        <span class="s0">while</span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s0">if</span><span class="s1">(temp==</span><span class="s0">null</span><span class="s1">)</span>
+            <span class="s1">{</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s1">System.out.println(temp)</span><span class="s0">;</span>
+            <span class="s1">temp=temp.next</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s0">class </span><span class="s1">heronode{</span>
+    <span class="s0">public int </span><span class="s1">no</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">String name</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">String nickname</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">heronode next</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">heronode()</span>
+    <span class="s1">{</span>
+
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">heronode(</span><span class="s0">int </span><span class="s1">no</span><span class="s0">,</span><span class="s1">String name</span><span class="s0">,</span><span class="s1">String nickname)</span>
+    <span class="s1">{</span>
+        <span class="s0">this</span><span class="s1">.no=no</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.name=name</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.nickname=nickname</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">String toString()</span>
+    <span class="s1">{</span>
+        <span class="s0">return </span><span class="s3">&quot;heroname+&quot;</span><span class="s1">+name+</span><span class="s3">&quot;no&quot;</span><span class="s1">+no+</span><span class="s3">&quot;nickname&quot;</span><span class="s1">+nickname</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

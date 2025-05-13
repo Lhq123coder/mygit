@@ -1,0 +1,14 @@
+function myFn() {
+            var obj=event.target||event.srcElement;
+            var str=obj.value;
+            if(obj.type=="button")
+            {
+                if(str=="C")
+                    show.value="";
+                else if(str=="=")
+                    show.value=eval(show.value);
+                else{
+                    show.value+=str;
+                }
+            }
+        }

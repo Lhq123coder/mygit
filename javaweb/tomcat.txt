@@ -1,0 +1,12 @@
+javaweb，指用java编写的可以通过浏览器访问的程序总称
+请求：客户端给服务器发送数据
+相应：响应是指服务器给客户端传回数据
+请求和相应的关系：成对出现
+web资源分类
+动态：jsp页面 servlet
+静态：html css js txt mp4 jpg
+web服务器：tomcat
+mysql默认端口号：3306
+tomcat默认端口号：8080
+部署web工程到tomcat中
+1.把web工程的目录拷贝到tomcat的webapps目录下，在webapps目录下创建一个工程

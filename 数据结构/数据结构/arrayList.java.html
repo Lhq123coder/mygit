@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>arrayList.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+arrayList.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">数据结构</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Arrays</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Collections</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">arrayList {</span>
+
+    <span class="s0">void </span><span class="s1">show(ArrayList&lt;Integer&gt; arr )</span>
+    <span class="s1">{</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; arr.size()</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">System.out.print(arr.get(i)+</span><span class="s3">&quot;  &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s0">int</span><span class="s1">[] a1={</span><span class="s2">2</span><span class="s0">,</span><span class="s2">4</span><span class="s0">,</span><span class="s2">1</span><span class="s0">,</span><span class="s2">3</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s1">ArrayList&lt;Integer&gt;arr=</span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
+        <span class="s1">arr.add(</span><span class="s2">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">arr.add(</span><span class="s2">2</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">arrayList a=</span><span class="s0">new </span><span class="s1">arrayList()</span><span class="s0">;</span>
+        <span class="s1">a.show(arr)</span><span class="s0">;</span>
+        <span class="s1">arr.set(</span><span class="s2">0</span><span class="s0">,</span><span class="s2">2</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">a.show(arr)</span><span class="s0">;</span>
+        <span class="s1">arr.remove(</span><span class="s2">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">a.show(arr)</span><span class="s0">;</span>
+        <span class="s1">arr.add(</span><span class="s2">4</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">Arrays.sort(a1)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(Arrays.toString(a1))</span><span class="s0">;</span>
+        <span class="s1">Collections.sort(arr)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(arr.toString())</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

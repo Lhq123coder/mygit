@@ -1,0 +1,89 @@
+hello world
+
+1.什么是servlet
+用来扩展web服务器功能的组件规范，接口
+   扩展web服务器功能，处理动态资源请求
+ 组件规范
+1.什么是组件：
+符合规范，实现部分功能，并且需要部署到相应的容器中才能运行的软件模块
+2.什么是容器：
+符合规范的提供组件运行环境的程序
+tomcat
+如何写一个servlet
+step1:写一个java类，实现servlet接口或者继承HttpServlet；
+step2：编译
+step3：打包：按照如下结构文件夹，
+appname
+    WEB-INF 
+       classes 放.class文件
+             lib 放.jar文件
+             web.xml 部署描述文件
+step4：部署
+   把step3的文件夹拷贝到容器指定位置
+   将3创建好的文件夹压缩成.war，拷贝
+step5：启动容器，访问servlet
+http://ip:port/appname/url-pattern
+url-pattern在web.xml中
+
+web三大组件
+servlet程序，filter过滤器，listener监听器
+servlet是运行在服务器的一个Java小程序，接收客户端发来的请求，并且响应
+
+生命周期
+1.执行servlet构造器方法：
+2.执行init初始化方法
+第一二步在创建servlet程序调用
+3.执行service方法
+第三步每次访问都调用
+4.执行destroy方法
+web工程停止的时候调用
+
+通过继承httpservlet实现servlet程序
+一般在实际开发，都是使用继承httpservlet程序
+1.编写一个类继承httpservlet
+2.更具业务重写doget和dopost
+3.到web.xml的配置servlet访问地址
+使用idea创建servlet程序
+
+servlet继承体系
+servlet接口，只是负责定义servlet程序的访问规范
+genericservlet实现了servlet接口，持有一个servletconfig的引用，对servletconfig
+使用做了一些方法
+httpservlet实现了service方法，实现了请求分发处理
+req.getMethod();
+GET     POST
+doGet() doPost()负责抛异常，不支持请求
+
+自定义的servlet程序
+重写doGet() doPost()
+
+servletConfig类
+配置信息类
+1.可以获取程序别名，servlet-name
+2.获取初始化参数 init-param
+3.获取servletContext对象
+servlet默认第一次访问时候创建，servletConfig是每个程序创建，对应一个servletConfig
+对象
+servletContext类
+一个接口，表示servlet上下文对象
+一个web工程，只有一个servletContext对象实例
+域对象
+可以像map存取数据
+
+map    put                 get                 remove
+域对象   setAttribute      getAttribute        removeAttribute
+  
+作用
+1.获取web.xml配置的上下文参数
+2.获取当前工程路径
+3.获取工程部术后在服务器硬盘的绝对路径
+4.像map一样存取数据
+
+
+
+
+
+
+
+
+

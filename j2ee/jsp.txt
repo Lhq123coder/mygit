@@ -1,0 +1,19 @@
+Java server pages:
+作用：代替servlet程序回传html页面的数据，servlet回传很麻烦
+web下new一个jsp文件
+访问和访问html一样 http://ip:port/工程路径/a.jsp
+本质：是一个servlet程序
+jsp page指令：
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+page指令，可以修改jsp页面一些重要的属性或行为
+language 表示jsp翻译之后为什么语言文件，暂时只支持java
+contentType 表示其返回的数据类型
+import 导包
+errorPage 表示出错跳转的地方 以/打头
+
+常用脚本：
+<%! 声明Java代码 %>可以给jsp翻译出来的java类定义属性
+表达式脚本：<%=表达式%>在jsp页面上输出数据
+表达式脚本特点：1.所有表达式脚本都会被翻译到_jspService方法中
+2.都会被翻译成为out.print()

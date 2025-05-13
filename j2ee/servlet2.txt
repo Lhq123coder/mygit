@@ -1,0 +1,55 @@
+HTTPServletRequest类
+作用：
+每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好
+封装到Request对象中，然后传递到service方法doGet和doPost，我们可以通过
+HTTPServletRequest对象，获取所有请求的信息
+
+
+HttpServletRequset类的使用方法
+1.getRequestURI()  获取请求的资源路径
+2.getRequestURL    获取请求的统一资源定位（绝对路径）
+3.getRemoteHost    获取客户端ip地址
+4.getHeader        获取请求头
+5.getParameter     获取请求的参数
+6.getParameterValues 获取请求的参数（多个值使用）
+7.getMethod        获取请求方式（GET或者POST）
+8.setAttribute（key，value） 设置域数据
+9.getAttribute（key）  获取域数据
+10.getRequestDispatcher  获取请求转发对象
+
+
+请求的转发：
+服务器收到请求后，从一个资源跳到另一个资源
+
+
+
+web中的相对路径和绝对路径：
+相对
+.        表示当前目录
+..       表示上一级目录
+资源名       表示当前目录下/资源名
+
+绝对路径：
+http://ip:port/工程路径/资源名
+
+
+
+web中的/不同意义
+在web中/是一种绝对路径。
+/如果被浏览器解析，得到：http://ip:port/
+被服务器解析，http://ip:port/工程路径
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

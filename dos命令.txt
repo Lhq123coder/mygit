@@ -1,0 +1,52 @@
+常见dos命令
+win+r输入cmd进入系统命令
+cd..上一级
+cd aa进入下一级tab快速选择
+cd/进入根目录
+D:切换到D盘大小写不区分
+cls清屏
+dir查看当前文件夹下内容
+javac  编译命令
+java  运行命令
+jdk开发环境，jre运行环境
+
+快捷键 psvm   main方法
+    sout    输出
+    导包快捷键：alt+enter
+    导包生成变量 alt+enter
+    单行注释取消，ctrl+/
+    多行注释ctrl+shift+/
+    构造方法：alt+insert
+//栈内存：大小固定，用于存储局部变量，零时变量，引用变量（A a=new A();a为引用变量)
+//堆内存：大小不固定，对象
+//Random r=new Random();//创建一个随机数工具
+//        for (int i = 0; i < 5; i++) {
+//        System.out.println(r.nextInt(20));//20以内的数
+//        }
+//定义数组,第一种
+//int[] nums=new int[20];//全是零
+//2
+//int[] nums2;
+//nums2=new int [10];
+//3
+//int[] nums3=new int[]{1,2,3,4};
+//4
+//int[] nums4={0,1,2,3};
+//数组遍历
+//可变参数只能是在参数列表最后一位，当作数组使用
+//Arrays类
+//        Arrays.sort(nums);//快速排
+//                System.out.println(Arrays.toString(nums));
+//                //数组复制
+//                int[] arr=Arrays.copyOf(nums,10);
+//                System.out.println(Arrays.toString(arr));
+//                //判断是否相等
+//                Arrays.equals(nums,arr);
+//在类中定义的代码块，构造块
+//在类中定义的方法，普通代码块
+//设计规则
+//将所有派生类的公有属性抽到超类
+//派生类型为一样，设为普通方法
+//派生类行为不一样，设为抽象方法
+//将部分派生类的共有行为，抽到接口中
+//接口是继承单根性的扩展，实现多继承

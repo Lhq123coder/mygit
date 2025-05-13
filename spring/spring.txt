@@ -1,0 +1,9 @@
+IOC(DI)和AOP
+控制反转(依赖注入)和面向切面编程
+搭建spring框架
+导入jar包
+编写核心文件
+  名字applicationContext.xml /beans.xml /spring.xml  
+  配置文件的路径：
+   src/main/resources
+使用核心库

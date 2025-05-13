@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .ok{
+            color: green;
+        }
+        .err{
+            color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        function checkFn() {
+            var reg=/^\w{6,10}$/;
+            if(reg.test(i1.value))
+            {
+                //修改class为ok
+                s1.className="ok";
+                return true;
+            }
+            else{
+                s1.className="err";
+                return false;
+            }
+            if(reg.test(i2.value))
+            {
+                //修改class为ok
+                s2.className="ok";
+                return true;
+            }
+            else{
+                s2.className="err";
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="i1" placeholder="用户名" onblur="checkFn()">
+<span id="s1">。。。。</span><br>
+<input type="text" id="i2" placeholder="密码" onblur="checkFn()">
+<span id="s2">.....</span><br>
+<!--<input type="button" value="校验" onclick="checkFn()">-->
+
+</body>
+</html>
